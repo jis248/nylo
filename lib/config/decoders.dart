@@ -1,3 +1,4 @@
+import '/app/models/location_resp.dart';
 import '/app/controllers/home_controller.dart';
 import '/app/models/user.dart';
 import '/app/networking/api_service.dart';
@@ -16,6 +17,10 @@ final Map<Type, dynamic> modelDecoders = {
   User: (data) => User.fromJson(data),
 
   // User: (data) => User.fromJson(data),
+
+  List<LocationRespLocationAvailability>: (data) => List.from(data['locationAvailability']).map((json) => LocationRespLocationAvailability.fromJson(json)).toList(),
+
+  LocationRespLocationAvailability: (data) => LocationRespLocationAvailability.fromJson(data['locationAvailability']),
 };
 
 /* API Decoders

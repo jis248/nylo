@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:pretty_dio_logger/pretty_dio_logger.dart';
+import '../models/location_resp.dart';
 import '/config/storage_keys.dart';
 import '/config/decoders.dart';
 import 'package:nylo_framework/nylo_framework.dart';
@@ -36,6 +37,12 @@ class ApiService extends NyApiService {
   Future fetchTestData() async {
     return await network(
         request: (request) => request.get("/endpoint-path"),
+    );
+  }
+
+  Future<List<LocationRespLocationAvailability>?> fetchTestData1() async {
+    return await network<List<LocationRespLocationAvailability>>(
+        request: (request) => request.get("/api/Physician/GetAllLocations"),
     );
   }
 
