@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:pretty_dio_logger/pretty_dio_logger.dart';
 import '../models/location_resp.dart';
+import '../models/login_auth_resp.dart';
 import '/config/storage_keys.dart';
 import '/config/decoders.dart';
 import 'package:nylo_framework/nylo_framework.dart';
@@ -43,6 +44,25 @@ class ApiService extends NyApiService {
   Future<List<LocationRespLocationAvailability>?> fetchTestData1() async {
     return await network<List<LocationRespLocationAvailability>>(
         request: (request) => request.get("/api/Physician/GetAllLocations"),
+    );
+  }
+
+  Future<LoginAuthRespResult?> loginPost(String username,String pass,) async {
+    return await network<LoginAuthRespResult>(
+        request: (request) => request.post("/api/TokenAuth/xamarinAuthenticate",
+        data: {
+                  "userNameOrEmailAddress": username,
+                  "password": pass,
+                  "twoFactorVerificationCode": "string",
+                  "rememberClient": true,
+                  "twoFactorRememberClientToken": "string",
+                  "singleSignIn": true,
+                  "returnUrl": "string",
+                  "captchaResponse": "string"
+                }),
+        headers: {
+                  "Abp.TenantId":"225"
+                },
     );
   }
 
@@ -102,10 +122,10 @@ class ApiService extends NyApiService {
   |         context: context);
   |-------------------------------------------------------------------------- */
 
-  // displayError(DioException dioException, BuildContext context) {
-  //   showToastNotification(context,
-  //       title: "Error",
-  //       description: dioException.message ?? "",
-  //       style: ToastNotificationStyleType.DANGER);
-  // }
+  displayError(DioException dioException, BuildContext context) {
+    showToastNotification(context,
+        title: "Error",
+        description: dioException.message ?? "",
+        style: ToastNotificationStyleType.DANGER);
+  }
 }

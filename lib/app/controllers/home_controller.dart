@@ -20,8 +20,9 @@ class HomeController extends Controller {
   onTapGithub() async {
     // await launchUrl(Uri.parse("https://github.com/nylo-core/nylo"));
 
-    List<LocationRespLocationAvailability>? temp = await _apiservice.fetchTestData1();
+    // List<LocationRespLocationAvailability>? temp = await _apiservice.fetchTestData1();
     
+    var temp1 = await _apiservice.loginPost("admin", "123qwe23");
   }
 
   onTapChangeLog() async {

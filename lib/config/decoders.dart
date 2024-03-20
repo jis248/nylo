@@ -1,3 +1,4 @@
+import '/app/models/login_auth_resp.dart';
 import '/app/models/location_resp.dart';
 import '/app/controllers/home_controller.dart';
 import '/app/models/user.dart';
@@ -21,6 +22,8 @@ final Map<Type, dynamic> modelDecoders = {
   List<LocationRespLocationAvailability>: (data) => List.from(data['locationAvailability']).map((json) => LocationRespLocationAvailability.fromJson(json)).toList(),
 
   LocationRespLocationAvailability: (data) => LocationRespLocationAvailability.fromJson(data['locationAvailability']),
+
+  LoginAuthRespResult: (data) => LoginAuthRespResult.fromJson(data['result']),
 };
 
 /* API Decoders
