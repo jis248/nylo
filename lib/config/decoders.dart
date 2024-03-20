@@ -1,3 +1,4 @@
+import '/app/controllers/profile_controller.dart';
 import '/app/models/login_auth_resp.dart';
 import '/app/models/location_resp.dart';
 import '/app/controllers/home_controller.dart';
@@ -51,6 +52,6 @@ final Map<Type, dynamic> controllers = {
   HomeController: () => HomeController(),
 
   // ...
-
+  ProfileController: () => ProfileController(),
 };
 

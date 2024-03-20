@@ -1,3 +1,5 @@
+import 'package:flutter_app/resources/pages/profile_page.dart';
+
 import '/resources/pages/home_page.dart';
 import 'package:nylo_framework/nylo_framework.dart';
 
@@ -23,4 +25,6 @@ appRouter() => nyRoutes((router) {
   //
   //   router.route(AccountPage.path, (context) => AccountPage());
   // });
+
+  router.route(ProfilePage.path, (context) => ProfilePage(), transition: PageTransitionType.fade);
 });
